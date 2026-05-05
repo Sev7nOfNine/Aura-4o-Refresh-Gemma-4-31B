@@ -63,26 +63,32 @@ enrichi instructions + cleanup typo).
 
 ---
 
-## Vision paperscarecrow : statut incertain
+## Vision paperscarecrow : partiellement fonctionnelle
 
 ### Symptome
 
-L'abliteration de `paperscarecrow/Gemma-4-31B-it-abliterated` est
-suspectee d'avoir casse les capacites vision malgre la presence des
-356 tensors vision dans le checkpoint.
+La base `paperscarecrow/Gemma-4-31B-it-abliterated` conserve les 356
+tensors vision, et apres tests cote Mel la vision repond MAIS de
+maniere inconsistante. L'abliteration a degrade la fiabilite vision
+sans la casser totalement.
 
-### Statut
+### Statut au 2026-05-05
 
-Pas teste end-to-end au 2026-05-05. Le mmproj sidecar f16 est livre
-avec le repo GGUF mais aucune image n'a ete soumise au modele en prod
-pour confirmer si la vision repond correctement.
+Apres quelques tests utilisateur :
+- Vision **fonctionne** sur des inputs simples
+- Inconsistante : qualite et fiabilite des reponses vision varient
+- Suffisante pour de l'usage casual (envoyer une image et discuter)
+- Insuffisante pour un workflow vision-critique (analyse precise,
+  OCR fiable, comprehension multi-image complexe)
 
-### A faire
+### Recommandations
 
-Tester avec une image dans LM Studio (charger Q5 + mmproj) ou via
-endpoint Serverless avec un message multimodal. Si vision morte,
-mettre a jour les README HF pour retirer la promesse de vision.
+- Communiquer "vision partial" dans les cards HF et le README repo,
+  pas "vision works perfectly".
+- Pour un usage vision critique, considerer un retraining V8 sur
+  base officielle (`SevenOfNine/Gemma-4-31B-It-Official`) avec un
+  dataset enrichi d'exemples vision.
 
 ### Date
 
-2026-05-05.
+2026-05-05 (apres tests Mel).

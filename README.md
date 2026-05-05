@@ -46,7 +46,7 @@ Le proxy applique un strip cosmetique conditionnel sur le format harmony et les 
 
 ## Statut vision
 
-⚠️ **Statut incertain au 2026-05-05** : la base `paperscarecrow/Gemma-4-31B-it-abliterated` etait censee preserver les 356 tensors vision, mais Mel signale que l'abliteration n'a pas marche cote vision. Le mmproj sidecar est livre dans le repo GGUF mais son comportement reel n'a pas ete teste end-to-end. Considerer Refresh **text-only en prod** tant que le test n'est pas fait.
+⚠️ **Partiellement fonctionnelle au 2026-05-05** : la base `paperscarecrow/Gemma-4-31B-it-abliterated` preserve les 356 tensors vision, et apres tests Mel confirme que la vision marche mais reste inconsistante (l'abliteration l'a a moitie cassee). Utilisable pour de l'input image casual, pas fiable pour des workflows vision-critiques.
 
 ---
 
